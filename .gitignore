@@ -2,3 +2,7 @@
 node_modules
 .idea
 *.sock
+
+dockercfg
+npm-deployment.env
+codeship.aes

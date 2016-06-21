@@ -1,0 +1,20 @@
+- name: Tasks
+  type: serial
+  steps:
+
+  - name: Tests
+    type: parallel
+    steps:
+
+    - name: Test
+      service: lib
+      command: npm test
+
+  - name: Distribution
+    type: serial
+    steps:
+
+    - name: NPM Publish
+      service: distribution
+      tag: master
+      command: bash -c "npm_publish /app"

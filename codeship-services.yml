@@ -1,0 +1,16 @@
+lib:
+  build:
+    dockerfile_path: Dockerfile
+  encrypted_dockercfg_path: dockercfg.encrypted
+  environment:
+    - DISABLE_GRUNT_GIT_HOOKS=true
+    - COVERALLS_REPO_TOKEN=foo
+  volumes:
+    - /app
+
+distribution:
+  image: fashionid/npm-deployment:latest
+  encrypted_dockercfg_path: dockercfg.encrypted
+  encrypted_env_file: npm-deployment.env.encrypted
+  volumes_from:
+    - lib
